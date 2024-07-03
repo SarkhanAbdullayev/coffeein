@@ -331,13 +331,41 @@
     }
 
     .footer {
+        background-color: black;
+        color: white;
         padding: 40px 100px;
         @include flex(space-between, center, row);
 
-        .footer-start {}
+        .footer-start {
+            .logo {
+                margin-bottom: 10px;
+            }
+            .row {
+                @include flex(flex-start, center, row , 10px);
+                margin-bottom: 10px;
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+            .copyright {
+                font-size: 14px;
+                color: #D1D5DB;
+            }
+        }
 
         .footer-end {
-            @include flex(space-between, center, row);
+            @include flex(space-between, flex-start, column);
+            .get-the-app {
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 28px;
+                margin-bottom: 5px;
+                color: white;
+            }
+            .app-badges {
+                flex-direction: column;
+            }
         }
     }
 }

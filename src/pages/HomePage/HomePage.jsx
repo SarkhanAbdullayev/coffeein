@@ -3,6 +3,7 @@ import '../../assets/styles/homePage.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+
 import getStartedBg from '../../assets/images/getStartedBg.png'
 import airBnb from '../../assets/images/logo_clouds_images/airBnb.svg'
 import hubSpot from '../../assets/images/logo_clouds_images/hubSpot.svg'
