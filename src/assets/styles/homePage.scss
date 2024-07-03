@@ -1,0 +1,343 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.section-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.title {
+    color: $mainTextColor;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: $mainTextColor;
+    line-height: 28px;
+    margin: 0;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #E5E7EB;
+}
+
+.stories-card {
+    min-height: 100px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 32px;
+
+    .stories-card-icon {
+        margin-bottom: 32px;
+    }
+
+    .stories-card-content {
+        @include flex(unset, flex-start, row, 16px);
+
+        .stories-card-quoteMark {
+            width: 16px;
+            height: 13px;
+        }
+
+        .stories-card-description {
+            .stories-card-storyText {
+                margin: 0;
+            }
+
+            .stories-card-fullNamePosition {
+                .stories-card-fullName {
+                    margin: 0;
+                    margin-top: 25px;
+                }
+
+                .stories-card-position {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.app-badges {
+    @include flex(flex-start, center, row, 12px);
+    .playStore,
+    .appStore {
+        width: 135px;
+        height: 40px;
+        cursor: pointer;
+    }
+}
+
+.homePage {
+
+    .header {   
+        padding: 0 100px;
+        margin-bottom: 96px;
+
+        .navbar {
+            @include flex(unset, center, row);
+            height: 80px;
+            background-color: white;
+
+            .navbar-logo {
+                width: 121px;
+                height: 32px;
+            }
+
+            .navbar-items {
+                @include flex(unset, center, row, 10px);
+
+                .navbar-item {
+                    @include flex(unset, center, row, 5px);
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: $mainTextColor;
+                    cursor: pointer;
+                }
+            }
+
+            .app-badges {
+                justify-content: flex-end;
+                flex-grow: 1;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+    }
+
+    .get-started-section {
+        padding: 0 100px;
+        @include flex(center, center, column);
+        background-color: white;
+
+        .get-started-title {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 72px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .get-started-btn {
+            width: 177px;
+            height: 56px;
+            background-color: $mainGreen;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 80px;
+        }
+
+        .get-started-bg {
+            width: 120%;
+        }
+
+    }
+
+    .logo-clouds-section {
+        padding: 16px 100px;
+        @include flex(center, center, column);
+        background-color: white;
+
+        .logo-clouds {
+            margin: 40px 0;
+            @include flex(center, center, row, 50px);
+            flex-wrap: wrap;
+        }
+    }
+
+    .features-section {
+        padding: 96px 100px;
+        @include flex(center, center, column);
+
+        .features-subtitle {
+            text-align: center;
+            margin-bottom: 65px;
+        }
+
+        .features-cards {
+            @include flex(center, center, row, 5%);
+            flex-wrap: wrap;
+            margin-bottom: 96px;
+
+            .features-card {
+                width: 25%;
+                max-width: 352px;
+                @include flex(center, center, column);
+
+                .features-card-icon {
+                    width: 32px;
+                    height: 32px;
+                    margin-bottom: 24px;
+                }
+
+                .features-card-title {
+                    font-size: 30px;
+                    font-weight: 700;
+                    line-height: 40px;
+                    margin-bottom: 8px;
+                    text-align: center;
+                }
+
+                .features-card-description {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .stories-section {
+        background-color: #DBF5E5;
+        padding: 70px 100px;
+        @include flex(center, flex-start, row, 30px);
+
+        .stories-main {
+            width: calc(50% - 15px);
+            @include flex(unset, end, column, 60px);
+
+            .quoteMarkWrapper {
+                position: relative;
+                padding-left: 100px;
+                @include flex(unset, left, column);
+
+                .quoteMark {
+                    left: 0;
+                    top: 0;
+                    position: absolute;
+
+                }
+
+                .title {
+                    z-index: 1;
+                    margin: 0;
+                    margin-top: 55px;
+                }
+            }
+        }
+
+        .stories-secondary {
+            width: calc(50% - 15px);
+            @include flex(center, start, column, 30px);
+            margin-top: 180px;
+            margin-bottom: 87px;
+        }
+
+    }
+
+    .metrics-section {
+        padding: 100px 100px;
+        @include flex(space-between, center, row, 30px);
+        background-color: white;
+
+        .metrics-section-head {
+            width: calc(50%);
+        }
+
+        .metrics-section-content {
+            width: calc(50%);
+            @include flex(space-between, center, row, 10px);
+            flex-wrap: wrap;
+
+            .metrics-card {
+                width: 48%;
+                @include flex(flex-start, center, row, 20px);
+
+                .metrics-card-icon {
+                    width: 32px;
+                    height: 32px;
+                }
+
+                .metrics-card-body {
+                    .metrics-card-count {
+                        font-size: 36px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .clouds-section {
+        padding: 100px 100px;
+        @include flex(flex-start, center, row, 30px);
+        background-color: white;
+
+        .clouds-section-head {
+            width: 50%;
+            padding-right: 10%;
+        }
+
+        .clouds-section-content {
+            background-color: #DBF5E5;
+            min-height: 270px;
+            width: 540px;
+            /* установите ширину в 100% для полного полукруга */
+            border-bottom-left-radius: 100% 540px;
+            border-bottom-right-radius: 100% 540px;
+            @include flex(space-evenly, center, column);
+
+            img {
+                width: 64px;
+            }
+
+            .clouds-top-icons {
+                width: 100%;
+                @include flex(space-evenly, center, row);
+            }
+
+            .clouds-bottom-icons {
+                width: 90%;
+                @include flex(space-evenly, center, row, );
+            }
+        }
+
+    }
+
+    .download-section {
+        background-color: $mainGreen;
+        padding: 0 100px;
+        height: 500px;
+        @include flex(flex-start,center, row, 7%);
+
+        .download-section-head {
+            padding: 100px 0;
+            width: 50%;
+            @include flex(center, flex-start, column, 30px);
+        }
+
+        .download-section-body {
+            height: 100%;
+            width: 50%;
+            @include flex(flex-start, flex-start, row);
+            img {
+                width: 55%;
+            }
+            .phoneMockup2 {
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .footer {
+        padding: 40px 100px;
+        @include flex(space-between, center, row);
+
+        .footer-start {}
+
+        .footer-end {
+            @include flex(space-between, center, row);
+        }
+    }
+}
