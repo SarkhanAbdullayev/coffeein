@@ -10,13 +10,13 @@ const MetricsCard = ({ icon, count, description }) => {
     };
     return (
         <div className='metrics-card'>
-            <div>
+            {/* <div>
                 <AnimatedCounter value={counterValue} color="red" fontSize="40px" />
                 <div>
                     <button onClick={() => handleCounterUpdate(false)}>Decrement</button>
                     <button onClick={() => handleCounterUpdate(true)}>Increment</button>
                 </div>
-            </div>
+            </div> */}
             <img className='metrics-card-icon' src={icon} alt="" />
             <div className="metrics-card-body">
 

@@ -1,6 +1,7 @@
 @import './variables.scss';
 @import './mixins.scss';
 
+
 .section-wrapper {
     max-width: 1440px;
     margin: 0 auto;
@@ -67,6 +68,7 @@
 
 .app-badges {
     @include flex(flex-start, center, row, 12px);
+
     .playStore,
     .appStore {
         width: 135px;
@@ -77,12 +79,12 @@
 
 .homePage {
 
-    .header {   
+    .header {
         padding: 0 100px;
         margin-bottom: 96px;
 
         .navbar {
-            @include flex(unset, center, row);
+            @include flex(unset, center, row, 20px);
             height: 80px;
             background-color: white;
 
@@ -103,13 +105,85 @@
                 }
             }
 
+
+
+
+
+            .burger {
+                display: none;
+                align-items: center;
+                position: relative;
+                height: 32px;
+                width: 32px;
+
+                .checkbox {
+                    position: absolute;
+                    display: block;
+                    height: 32px;
+                    width: 32px;
+                    z-index: 5;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+
+                .hamburger-lines {
+                    height: 26px;
+                    width: 32px;
+                    position: block;
+                    top: 17px;
+                    left: 20px;
+                    z-index: 2;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .line {
+                        display: block;
+                        height: 4px;
+                        width: 100%;
+                        border-radius: 10px;
+                        background: #111827;
+
+                        &.line1 {
+                            transform-origin: 0% 0%;
+                            transition: transform 0.4s ease-in-out;
+                        }
+
+                        &.line2 {
+                            transition: transform 0.2s ease-in-out;
+                        }
+
+                        &.line3 {
+                            transform-origin: 0% 100%;
+                            transition: transform 0.4s ease-in-out;
+                        }
+                    }
+                }
+
+                input[type="checkbox"]:checked~.hamburger-lines {
+                    .line1 {
+                        transform: rotate(45deg);
+                    }
+
+                    .line2 {
+                        transform: scaleY(0);
+                    }
+
+                    .line3 {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            //!burger!//
+
+
+
+            .menu-clicked {}
+
             .app-badges {
                 justify-content: flex-end;
                 flex-grow: 1;
-            }
-
-            .menu {
-                display: none;
             }
         }
     }
@@ -141,7 +215,12 @@
         }
 
         .get-started-bg {
-            width: 120%;
+            background-image: url('../images/getStartedBg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            height: 300px;
+            width: 100%;
         }
 
     }
@@ -159,7 +238,7 @@
     }
 
     .features-section {
-        padding: 96px 100px;
+        padding: 100px 100px;
         @include flex(center, center, column);
 
         .features-subtitle {
@@ -175,6 +254,7 @@
             .features-card {
                 width: 25%;
                 max-width: 352px;
+                margin-bottom: 20px;
                 @include flex(center, center, column);
 
                 .features-card-icon {
@@ -210,7 +290,7 @@
             .quoteMarkWrapper {
                 position: relative;
                 padding-left: 100px;
-                @include flex(unset, left, column);
+                @include flex(unset, flex-start, column);
 
                 .quoteMark {
                     left: 0;
@@ -280,13 +360,18 @@
         }
 
         .clouds-section-content {
-            background-color: #DBF5E5;
-            min-height: 270px;
-            width: 540px;
-            /* установите ширину в 100% для полного полукруга */
-            border-bottom-left-radius: 100% 540px;
-            border-bottom-right-radius: 100% 540px;
-            @include flex(space-evenly, center, column);
+            width: 50%;
+            min-height: 220px;
+            background-image: url('../images/cloudLogos.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            // background-color: #DBF5E5;
+            // min-height: 270px;
+            // width: 540px;
+            // border-bottom-left-radius: 100% 540px;
+            // border-bottom-right-radius: 100% 540px;
+            // @include flex(space-evenly, center, column);
 
             img {
                 width: 64px;
@@ -309,21 +394,28 @@
         background-color: $mainGreen;
         padding: 0 100px;
         height: 500px;
-        @include flex(flex-start,center, row, 7%);
+        @include flex(flex-start, center, row, 7%);
 
         .download-section-head {
             padding: 100px 0;
             width: 50%;
             @include flex(center, flex-start, column, 30px);
+
+            .get-the-app {
+                font-size: 18px;
+                font-weight: 500;
+            }
         }
 
         .download-section-body {
             height: 100%;
             width: 50%;
             @include flex(flex-start, flex-start, row);
+
             img {
                 width: 55%;
             }
+
             .phoneMockup2 {
                 align-self: flex-end;
             }
@@ -333,21 +425,24 @@
     .footer {
         background-color: black;
         color: white;
-        padding: 40px 100px;
+        padding: 60px 100px;
         @include flex(space-between, center, row);
 
         .footer-start {
             .logo {
                 margin-bottom: 10px;
             }
+
             .row {
-                @include flex(flex-start, center, row , 10px);
+                @include flex(flex-start, center, row, 10px);
                 margin-bottom: 10px;
+
                 a {
                     color: white;
                     text-decoration: none;
                 }
             }
+
             .copyright {
                 font-size: 14px;
                 color: #D1D5DB;
@@ -356,6 +451,7 @@
 
         .footer-end {
             @include flex(space-between, flex-start, column);
+
             .get-the-app {
                 font-size: 18px;
                 font-weight: 500;
@@ -363,9 +459,305 @@
                 margin-bottom: 5px;
                 color: white;
             }
+
             .app-badges {
                 flex-direction: column;
             }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .title {
+        font-size: 36px;
+        line-height: 45px;
+    }
+
+    .stories-card {
+        width: 100% !important;
+    }
+
+    .homePage {
+        .header {
+            padding: 0 40px;
+
+            .navbar {
+                .navbar-items {
+                    display: none;
+                }
+            }
+        }
+
+        .get-started-section {
+            .get-started-title {
+                font-size: 48px;
+                line-height: 60px;
+            }
+
+            .get-started-bg {
+                background-image: url('../images/getStartedBgTablet.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                height: 300px;
+                width: 100%;
+                scale: 1.2;
+            }
+        }
+
+        .features-section {
+            padding: 40px 40px;
+
+            .features-cards {
+                .features-card {
+                    width: 40%;
+                }
+            }
+        }
+
+        .stories-section {
+            padding: 60px 40px;
+            flex-direction: column;
+
+            .stories-main {
+                width: 100%;
+                align-items: flex-start;
+
+                .quoteMarkWrapper {
+                    padding-left: unset;
+
+                    .quoteMark {
+                        left: -20px;
+                    }
+                }
+            }
+
+            .stories-secondary {
+                width: 100%;
+                margin-top: unset;
+                margin-bottom: 20px;
+            }
+        }
+
+        .metrics-section {
+            padding: 60px 40px;
+            flex-direction: column;
+
+            .metrics-section-head {
+                width: 100%;
+            }
+
+            .metrics-section-content {
+                width: 100%;
+            }
+        }
+
+        .clouds-section {
+            padding: 60px 40px;
+
+            .clouds-section-head {
+                padding-right: unset;
+            }
+        }
+
+        .download-section {
+            padding: 0px 40px;
+            flex-direction: column;
+            height: unset;
+
+            .download-section-head {
+                padding: 50px 0;
+                width: 100%;
+            }
+
+            .download-section-body {
+                justify-content: space-between;
+                width: 100%;
+
+                img {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 475px) {
+
+    .title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .stories-card {
+        width: 100% !important;
+    }
+
+    .homePage {
+        .header {
+            padding: 0 40px;
+
+            .navbar {
+                justify-content: space-between;
+
+                .navbar-items {
+                    width: 100%;
+                    height: 100vh;
+                    position: absolute;
+                    left: 0;
+                    top: 80px;
+                    transform: translateX(-100%);
+                    background-color: white;
+                    @include flex(center, center, column, 30px);
+                    z-index: 10;
+                    transition: 250ms;
+                    .navbar-item {
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+                }
+
+                .burger {
+                    display: flex;
+                }
+
+                .app-badges {
+                    display: none;
+                }
+
+                .menu-icon {
+                    @include flex(space-between, flex-end, column);
+                }
+            }
+        }
+
+        .get-started-section {
+            padding: 40px 20px;
+
+            .get-started-title {
+                font-size: 36px;
+                line-height: 45px;
+            }
+
+            .get-started-bg {
+                background-image: url('../images/getStartedBgMobile.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                height: 300px;
+                width: 88%;
+            }
+        }
+
+        .features-section {
+            padding: 40px 20px;
+
+            .features-cards {
+                margin-bottom: 20px;
+
+                .features-card {
+                    width: 80%;
+                }
+            }
+        }
+
+        .stories-section {
+            padding: 60px 20px;
+            flex-direction: column;
+
+            .stories-main {
+                width: 100%;
+                align-items: flex-start;
+
+                .quoteMarkWrapper {
+                    padding-left: unset;
+
+                    .quoteMark {
+                        left: -10px;
+                    }
+                }
+            }
+
+            .stories-secondary {
+                width: 100%;
+                margin-top: unset;
+                margin-bottom: 20px;
+            }
+        }
+
+        .metrics-section {
+            padding: 60px 20px;
+            flex-direction: column;
+
+            .metrics-section-head {
+                width: 100%;
+            }
+
+            .metrics-section-content {
+                flex-wrap: nowrap;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .clouds-section {
+            padding: 60px 20px;
+            flex-direction: column;
+
+
+            .clouds-section-head {
+                padding-right: unset;
+                width: 100%;
+            }
+
+            .clouds-section-content {
+                width: 100%;
+            }
+        }
+
+        .download-section {
+            padding: 0px 20px;
+            flex-direction: column;
+            height: unset;
+
+            .download-section-head {
+                padding: 50px 0;
+                width: 100%;
+            }
+
+            .download-section-body {
+                justify-content: space-between;
+                flex-direction: column;
+                width: 100%;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .footer {
+            padding: 40px 20px;
+            flex-direction: column;
+            align-items: flex-start;
+
+            gap: 30px;
+
+            .footer-start {
+                .row {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                }
+            }
+
         }
     }
 }

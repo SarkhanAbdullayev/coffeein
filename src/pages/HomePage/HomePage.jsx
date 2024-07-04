@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../../assets/styles/homePage.scss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -96,16 +96,22 @@ const storiesData = [
     },
 ]
 
+
+
 const HomePage = () => {
 
+    const cloudsRef = useRef();
+    const storiesRef = useRef();
+    const downloadRef = useRef();
 
     return (
         <div className='homePage'>
-            <Header />
+            <Header cloudsRef={cloudsRef} storiesRef={storiesRef} downloadRef={downloadRef} />
             <section className='get-started-section'>
                 <h1 className='get-started-title title'>Work on big ideas, without the busywork.</h1>
                 <button className='get-started-btn'>Get Started Now</button>
-                <img src={getStartedBg} alt="" className='get-started-bg' />
+                <div className="get-started-bg"></div>
+                {/* <img src={getStartedBg} alt="" className='get-started-bg' /> */}
             </section>
             <section className='logo-clouds-section'>
                 <div className='line'></div>
@@ -128,15 +134,15 @@ const HomePage = () => {
                 </p>
                 <div className="features-cards">
                     {
-                        futuresCardData.map((futuresCard) => {
+                        futuresCardData.map((futuresCard, i) => {
                             return (
-                                <FuturesCard data={futuresCard} />
+                                <FuturesCard key={i} data={futuresCard} />
                             )
                         })
                     }
                 </div>
             </section>
-            <section className="stories-section">
+            <section ref={storiesRef} className="stories-section">
                 <div className="stories-main">
                     <div className="quoteMarkWrapper">
                         <img src={quoteMark} alt="quote" className='quoteMark' />
@@ -162,26 +168,15 @@ const HomePage = () => {
                     <MetricsCard icon={country} count={'140'} description={'Countries'} />
                 </div>
             </section>
-            <section className="clouds-section">
+            <section ref={cloudsRef} className="clouds-section">
                 <div className="clouds-section-head">
                     <h2 className='title'>Easy integrations with 170+ tools</h2>
                     <p className='subtitle'>Connect Landify with your favourite tools that you use daily and keep things on track.</p>
                 </div>
                 <div className="clouds-section-content">
-                    <div className="clouds-top-icons">
-                        <img src={clouds1} alt="" />
-                        <img src={clouds2} alt="" />
-                        <img src={clouds3} alt="" />
-                        <img src={clouds4} alt="" />
-                    </div>
-                    <div className="clouds-bottom-icons">
-                        <img src={clouds5} alt="" />
-                        <img src={clouds6} alt="" />
-                        <img src={clouds7} alt="" />
-                    </div>
                 </div>
             </section>
-            <section className="download-section">
+            <section ref={downloadRef} className="download-section">
                 <div className="download-section-head">
                     <h2 className='title'>Manage all projects from your mobile</h2>
                     <p className='subtitle'>
